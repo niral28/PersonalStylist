@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Stylist",
+  "version": "0.1.0",
+  "description": "PersonalStylist browser agent — opens product pages in a visible 'Stylist' tab group and extracts product data for the backend.",
+  "permissions": ["tabs", "tabGroups", "scripting", "storage", "alarms", "search"],
+  "host_permissions": [
+    "http://localhost:8000/*",
+    "http://127.0.0.1:8000/*",
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "src/background.ts",
+    "type": "module"
+  },
+  "options_page": "src/options/index.html",
+  "action": {
+    "default_title": "Stylist",
+    "default_popup": "src/popup/index.html",
+    "default_icon": {
+      "16": "public/icon16.png",
+      "48": "public/icon48.png",
+      "128": "public/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "public/icon16.png",
+    "48": "public/icon48.png",
+    "128": "public/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content.ts"],
+      "run_at": "document_idle"
+    }
+  ]
+}

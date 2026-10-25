@@ -1,0 +1,9 @@
+google-genai>=2.3.0
+fastapi>=0.115
+uvicorn[standard]>=0.30
+python-dotenv>=1.0
+python-multipart>=0.0.9
+pillow>=10.0
+pillow-heif>=0.16
+requests>=2.31
+pydantic>=2.7

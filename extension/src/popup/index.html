@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Stylist</title>
+    <style>
+      body { font: 13px/1.4 system-ui, sans-serif; width: 340px; margin: 0; padding: 12px; color: #222; }
+      h1 { font-size: 15px; margin: 0 0 8px; display: flex; align-items: center; gap: 8px; }
+      .dot { width: 9px; height: 9px; border-radius: 50%; background: #bbb; display: inline-block; }
+      .dot.ok { background: #2fa84f; }
+      .dot.warn { background: #e0a100; }
+      .dot.err { background: #d33; }
+      .muted { color: #777; font-size: 12px; }
+      ul { list-style: none; padding: 0; margin: 8px 0; max-height: 260px; overflow-y: auto; }
+      li { padding: 6px 0; border-bottom: 1px solid #eee; }
+      li .tool { font-weight: 600; }
+      li.error .detail { color: #c22; }
+      li.running .tool::after { content: ' …'; }
+      .row { display: flex; gap: 8px; margin-top: 8px; }
+      button { flex: 1; padding: 6px 8px; border: 1px solid #ccc; border-radius: 6px; background: #fafafa; cursor: pointer; }
+      button.primary { background: #c2185b; border-color: #c2185b; color: #fff; }
+    </style>
+  </head>
+  <body>
+    <h1><span id="dot" class="dot"></span> Stylist</h1>
+    <div id="status" class="muted">Checking backend…</div>
+    <ul id="actions"></ul>
+    <div class="row">
+      <button id="close" class="primary">Close Stylist tabs</button>
+      <button id="options">Settings</button>
+    </div>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
